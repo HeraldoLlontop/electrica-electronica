@@ -1,10 +1,12 @@
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://electrica-electronica.com';
+
 export const structuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Eléctrica Electrónica",
   "description": "Servicios eléctricos y electrónicos: cámaras de videovigilancia, alarmas, video portero, intercomunicadores, electrodomésticos, refrigeración y reflectores.",
-  "url": "https://electrica-electronica.example.com",
-  "logo": "https://electrica-electronica.example.com/images/logos/isologo-electrica-electronica.svg",
+  "url": baseUrl,
+  "logo": `${baseUrl}/images/logos/isologo-electrica-electronica.svg`,
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+51-978-073-454",

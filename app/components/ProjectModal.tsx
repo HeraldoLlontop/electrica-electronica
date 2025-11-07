@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { PROJECTS_DATA, Project } from '../lib/constants/projects';
-import { trackProjectView } from '../lib/analytics';
 
 interface ProjectModalProps {
   selectedProject: number | null;
@@ -30,12 +29,6 @@ const ProjectModal = ({
   // Bloquear scroll cuando el modal está abierto
   useEffect(() => {
     if (selectedProject) {
-      // Track project view
-      const project = PROJECTS_DATA.find((p: Project) => p.id === selectedProject);
-      if (project) {
-        trackProjectView(project.title);
-      }
-      
       // Guardar el scroll actual
       const scrollY = window.scrollY;
       

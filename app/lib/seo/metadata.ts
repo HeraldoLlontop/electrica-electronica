@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://electrica-electronica.com';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://electrica-electronica.example.com'),
+  metadataBase: new URL(baseUrl),
   title: {
     default: "Eléctrica Electrónica - Instalaciones y Seguridad",
     template: "%s | Eléctrica Electrónica"
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_PE',
-    url: 'https://electrica-electronica.example.com',
+    url: baseUrl,
     siteName: 'Eléctrica Electrónica',
     title: 'Eléctrica Electrónica - Instalaciones y Seguridad',
     description: 'Instalaciones eléctricas, cámaras de seguridad, alarmas y soluciones electrónicas.',
@@ -63,7 +65,7 @@ export const metadata: Metadata = {
     images: ['/images/logos/isologo-electrica-electronica.svg'],
   },
   alternates: {
-    canonical: 'https://electrica-electronica.example.com',
+    canonical: baseUrl,
   },
   icons: {
     icon: [
@@ -74,6 +76,6 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   verification: {
-    google: 'tu-codigo-de-verificacion-google',
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || 'codigo-verificacion-google',
   },
 };

@@ -21,6 +21,16 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: 2,
+    category: "Mantenimiento y Reparación",
+    title: "Reparación de letrero con luces",
+    images: [
+      "/images/projects/1762291236939-01.webp"
+    ],
+    tech: ["Iluminación LED", "Reparación eléctrica", "Letreros comerciales"],
+    description: "Reparación y mantenimiento de letrero iluminado para grifo, incluyendo revisión de conexiones eléctricas y sistema de luces."
+  },
+  {
+    id: 3,
     category: "Instalación Eléctrica",
     title: "Tableros eléctricos",
     images: [
@@ -29,7 +39,7 @@ export const PROJECTS_DATA: Project[] = [
     tech: ["Tablero principal", "Circuitos", "Protecciones"]
   },
   {
-    id: 3,
+    id: 4,
     category: "Instalación Eléctrica",
     title: "Equipos de cocina industriales",
     images: [
@@ -38,7 +48,7 @@ export const PROJECTS_DATA: Project[] = [
     tech: ["Motor eléctrico", "Conexiones", "Protecciones"]
   },
   {
-    id: 4,
+    id: 5,
     category: "Instalación Eléctrica",
     title: "Calentador solar de agua",
     images: [
@@ -47,7 +57,17 @@ export const PROJECTS_DATA: Project[] = [
     tech: ["Panel solar", "Tanque", "Conexiones"]
   },
   {
-    id: 5,
+    id: 6,
+    category: "Instalación Eléctrica",
+    title: "Terma eléctrica",
+    images: [
+      "/images/projects/20251107_160451113.webp"
+    ],
+    tech: ["Terma eléctrica", "Tanque", "Conexiones eléctricas"],
+    description: "Instalación de terma eléctrica para suministro de agua caliente, incluyendo conexiones eléctricas y montaje del tanque."
+  },
+  {
+    id: 7,
     category: "Instalación Eléctrica",
     title: "Hornos industriales",
     images: [
@@ -56,12 +76,13 @@ export const PROJECTS_DATA: Project[] = [
     tech: ["Control eléctrico", "Conexiones", "Protecciones"]
   },
   {
-    id: 6,
+    id: 8,
     category: "Instalación Eléctrica",
     title: "Equipos de bombeo y presurización",
     images: [
       "/images/projects/Image_vpj8qfvpj8qfvpj8.webp"
     ],
-    tech: ["Bomba eléctrica", "Presurización", "Conexiones"]
+    tech: ["Bomba eléctrica", "Presurización", "Conexiones"],
+    description: "Instalación eléctrica de sistema de bombeo y presurización, incluyendo conexiones eléctricas, tablero de control y protecciones para bomba eléctrica."
   }
 ];

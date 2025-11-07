@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://code200ti.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://electrica-electronica.com'
   
   return [
     {

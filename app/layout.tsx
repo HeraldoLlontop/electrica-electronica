@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { structuredData } from "./lib/seo/structured-data";
-import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export { metadata } from "./lib/seo/metadata";
 
@@ -22,15 +21,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        {/* Preconnect para Google Analytics/Tag Manager */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        
-        {/* DNS prefetch como fallback para navegadores antiguos */}
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        
-        {/* Preload crítico para LCP - Ambas versiones del logo */}
+        {/* Preload crítico para LCP - Logo */}
         <link rel="preload" href="/images/logos/isologo-electrica-electronica.svg" as="image" />
         
         <script
@@ -41,7 +32,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''} />
         {children}
       </body>
     </html>

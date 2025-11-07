@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { trackNavigationClick } from '../lib/analytics';
 
 const Navigation = () => {
   const [currentSection, setCurrentSection] = useState('inicio');
@@ -91,7 +90,6 @@ const Navigation = () => {
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    trackNavigationClick(item.name.toLowerCase());
                     const target = document.querySelector(item.href);
                     if (target) {
                       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
