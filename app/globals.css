@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ========================================
+   VARIABLES CSS
+======================================== */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Marca Eléctrica Electrónica */
+  --primary-blue: #020be9; /* azul */
+  --primary-celeste: #38b6ff; /* celeste */
+  --primary-yellow: #ffbb00; /* amarillo del logo */
+  
+  /* Fuentes optimizadas con next/font/google */
+  --font-sans: var(--font-inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ========================================
+   RESET Y BASE
+======================================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* ========================================
+   SCROLLBAR PERSONALIZADO
+======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-celeste);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue);
+}
+
+/* ========================================
+   HERO SECTION - COMPATIBILIDAD
+======================================== */
+.hero-dot-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(35,79,112,0.3) 1px, transparent 0);
+  background-size: 50px 50px;
+}
+
+/* Optimización LCP - Hero crítico */
+.hero-critical {
+  will-change: auto;
+  contain: layout style paint;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.hero-text-fallback {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
+
+h1 span:not(.bg-gradient-to-r) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.hero-buttons {
+  position: relative;
+  z-index: 20 !important;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  z-index: 0 !important;
+  pointer-events: auto;
+}
+
+/* ========================================
+   NAVEGACIÓN
+======================================== */
+nav {
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  width: 100% !important;
+}
+
+/* ========================================
+   OPTIMIZACIONES DE RENDIMIENTO
+======================================== */
+/* Reducir animaciones para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Desactivar animaciones de Framer Motion en móvil */
+@media (max-width: 767px) {
+  [data-framer-motion] { 
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
