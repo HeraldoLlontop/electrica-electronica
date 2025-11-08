@@ -38,7 +38,7 @@ const plans = [
 
 const Plans = () => {
   return (
-    <section id="planes" className="relative min-h-dvh flex items-center py-20 px-6 bg-gray-50">
+    <section id="planes" className="relative min-h-dvh flex items-center pt-28 pb-20 md:pt-32 md:pb-20 lg:pt-32 lg:pb-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-100px" }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 relative inline-block pb-2">

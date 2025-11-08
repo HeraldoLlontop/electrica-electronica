@@ -104,7 +104,7 @@ const Projects = () => {
 
 
   return (
-    <section id="proyectos" className="relative flex items-center pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 px-4 overflow-hidden bg-white">
+    <section id="proyectos" className="relative min-h-dvh flex items-center pt-28 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 px-4 overflow-hidden bg-white">
       <div className="w-full max-w-none mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

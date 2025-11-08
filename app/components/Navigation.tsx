@@ -14,7 +14,7 @@ const Navigation = () => {
     { name: 'Inicio', href: '#inicio' },
     { name: 'Servicios', href: '#servicios' },
     { name: 'Trabajos', href: '#proyectos' },
-    { name: 'Planes', href: '#planes' },
+    { name: 'Paquetes', href: '#planes' },
     { name: 'Preguntas', href: '#faqs' },
     { name: 'Contacto', href: '#contacto' }
   ];
