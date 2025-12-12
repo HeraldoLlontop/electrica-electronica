@@ -9,6 +9,21 @@ export interface Project {
 }
 
 export const PROJECTS_DATA: Project[] = [
+    {
+    id: 9,
+    category: "Infraestructura",
+    title: "Canalización eléctrica para iluminación.",
+    images: [
+      "/images/projects/20251211_192245292.webp"
+    ],
+    tech: [
+      "Tuberías conduit",
+      "Cajas octogonales y rectangulares",
+      "Rutas de iluminación",
+      "Preparación para luminarias y efectos"
+    ],
+    description: "Canalización eléctrica instalada en las vigas de un centro de recepciones en Chosica del Norte, utilizando tuberías conduit y cajas para la futura implementación de reflectores, iluminación decorativa, arañas y sistemas de luces móviles, garantizando una distribución segura y ordenada."
+  },
   {
     id: 1,
     category: "Infraestructura",
@@ -24,7 +39,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Mantenimiento y Reparación",
     title: "Reparación de letrero con luces",
     images: [
-      "/images/projects/1762291236939-01.webp"
+      "/images/projects/20251212_092545250.webp"
     ],
     tech: ["Iluminación LED", "Reparación eléctrica", "Letreros comerciales"],
     description: "Reparación y mantenimiento de letrero iluminado para grifo, incluyendo revisión de conexiones eléctricas y sistema de luces."
@@ -34,7 +49,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Instalación Eléctrica",
     title: "Tableros eléctricos",
     images: [
-      "/images/projects/1762295999454.webp"
+      "/images/projects/20251212_093109528.webp"
     ],
     tech: ["Tablero principal", "Circuitos", "Protecciones"]
   },
@@ -43,7 +58,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Instalación Eléctrica",
     title: "Equipos de cocina industriales",
     images: [
-      "/images/projects/1762312476546.webp"
+      "/images/projects/20251211_192549837.webp"
     ],
     tech: ["Motor eléctrico", "Conexiones", "Protecciones"]
   },
@@ -52,7 +67,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Instalación Eléctrica",
     title: "Calentador solar de agua",
     images: [
-      "/images/projects/Image_l670zal670zal670-01.webp"
+      "/images/projects/20251212_092509501.webp"
     ],
     tech: ["Panel solar", "Tanque", "Conexiones"]
   },
@@ -71,7 +86,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Instalación Eléctrica",
     title: "Hornos industriales",
     images: [
-      "/images/projects/1762312712398.webp"
+      "/images/projects/20251212_101242072.webp"
     ],
     tech: ["Control eléctrico", "Conexiones", "Protecciones"]
   },
@@ -80,7 +95,7 @@ export const PROJECTS_DATA: Project[] = [
     category: "Instalación Eléctrica",
     title: "Equipos de bombeo y presurización",
     images: [
-      "/images/projects/Image_vpj8qfvpj8qfvpj8.webp"
+      "/images/projects/Image_vpj8qfvpj8qfvpj8-01.webp"
     ],
     tech: ["Bomba eléctrica", "Presurización", "Conexiones"],
     description: "Instalación eléctrica de sistema de bombeo y presurización, incluyendo conexiones eléctricas, tablero de control y protecciones para bomba eléctrica."

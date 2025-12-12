@@ -9,20 +9,27 @@ import ProjectModal from './ProjectModal';
 
 const Projects = () => {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [viewportType, setViewportType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setViewportType('mobile');
+      } else if (width < 1024) {
+        setViewportType('tablet');
+      } else {
+        setViewportType('desktop');
+      }
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
   }, []);
 
   // Swipe gesture handlers
@@ -51,20 +58,31 @@ const Projects = () => {
   };
 
 
+  const getItemsPerView = () => {
+    switch (viewportType) {
+      case 'mobile':
+        return 1;
+      case 'tablet':
+        return 2;
+      case 'desktop':
+        return 3;
+      default:
+        return 3;
+    }
+  };
+
   const nextCarousel = () => {
     setCurrentCarouselIndex((prev) => {
-      const maxIndex = isMobile 
-        ? PROJECTS_DATA.length - 1  // En móvil: máximo índice para 1 imagen
-        : Math.max(0, PROJECTS_DATA.length - 2); // En desktop: máximo índice para 2 imágenes
+      const itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, PROJECTS_DATA.length - itemsPerView);
       return prev >= maxIndex ? 0 : prev + 1;
     });
   };
 
   const prevCarousel = () => {
     setCurrentCarouselIndex((prev) => {
-      const maxIndex = isMobile 
-        ? PROJECTS_DATA.length - 1
-        : Math.max(0, PROJECTS_DATA.length - 2);
+      const itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, PROJECTS_DATA.length - itemsPerView);
       return prev <= 0 ? maxIndex : prev - 1;
     });
   };
@@ -134,13 +152,13 @@ const Projects = () => {
           >
             <motion.div
               className="flex"
-              animate={{ 
-                x: `-${currentCarouselIndex * (isMobile ? 100 : 50)}%` 
-              }} // Responsive: 100% en móvil, 50% en desktop
+              animate={{
+                x: `-${currentCarouselIndex * (100 / getItemsPerView())}%`
+              }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               {PROJECTS_DATA.map((project: Project, index: number) => (
-                <div key={project.id} className="w-full md:w-1/2 flex-shrink-0 px-1"> {/* Responsive: 1 imagen en móvil, 2 en desktop */}
+                <div key={project.id} className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-1">
                   <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -200,8 +218,8 @@ const Projects = () => {
 
             {/* Indicadores de puntos */}
             <div className="flex gap-2">
-              {Array.from({ 
-                length: isMobile ? PROJECTS_DATA.length : Math.max(1, PROJECTS_DATA.length - 1) 
+              {Array.from({
+                length: Math.max(1, PROJECTS_DATA.length - getItemsPerView() + 1)
               }, (_, index) => (
                 <button
                   key={`carousel-dot-${index}`}
