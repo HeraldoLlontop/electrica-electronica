@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { trackLead } from '../lib/analytics/metaPixel';
 
 interface FloatingWhatsAppProps {
   phoneNumber: string;
@@ -10,6 +11,7 @@ interface FloatingWhatsAppProps {
 
 const FloatingWhatsApp = ({ phoneNumber, message = "Hola! Me interesa conocer más sobre tus servicios de desarrollo web." }: FloatingWhatsAppProps) => {
   const handleWhatsAppClick = () => {
+    trackLead('WhatsApp Flotante');
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');

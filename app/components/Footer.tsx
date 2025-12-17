@@ -2,6 +2,7 @@
 
 import { Phone, MapPin } from 'lucide-react';
 import Image from 'next/image';
+import { trackLead } from '../lib/analytics/metaPixel';
 
 const Footer = () => {
   const quickLinks = [
@@ -63,6 +64,7 @@ const Footer = () => {
               <li>
                 <a 
                   href="tel:+51978073454" 
+                  onClick={() => trackLead('Llamada Footer')}
                   className="flex items-center gap-2 text-gray-600 hover:text-[var(--primary-blue)] transition-colors duration-200"
                 >
                   <Phone className="w-4 h-4" />

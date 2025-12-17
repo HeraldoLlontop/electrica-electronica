@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Phone, MapPin, MessageCircle } from 'lucide-react';
+import { trackLead } from '../lib/analytics/metaPixel';
 
 const Contact = () => {
   const contactInfo = [
@@ -10,7 +11,8 @@ const Contact = () => {
       title: "Teléfono",
       info: "+51 978 073 454",
       description: "Lun-Dom 8:00-20:00",
-      link: "tel:+51978073454"
+      link: "tel:+51978073454",
+      trackSource: "Teléfono Contacto - Tarjeta",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -77,7 +79,16 @@ const Contact = () => {
                 );
 
                 return item.link ? (
-                  <a key={item.title} href={item.link} className="block">
+                  <a
+                    key={item.title}
+                    href={item.link}
+                    className="block"
+                    onClick={() => {
+                      if (item.trackSource) {
+                        trackLead(item.trackSource);
+                      }
+                    }}
+                  >
                     {content}
                   </a>
                 ) : (
@@ -110,6 +121,7 @@ const Contact = () => {
                 href="https://wa.me/51978073454?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n%20de%20servicios%20de%20el%C3%A9ctrica%20y%20electr%C3%B3nica."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackLead('WhatsApp Contacto')}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
@@ -122,6 +134,7 @@ const Contact = () => {
               {/* Botón Llamar */}
               <motion.a
                   href="tel:+51978073454"
+                onClick={() => trackLead('Llamada Contacto')}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}

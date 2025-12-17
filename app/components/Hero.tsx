@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Camera, ShieldAlert, DoorOpen, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { useScrollToSection } from '../lib/hooks/useScrollToSection';
+import { trackLead, trackViewContent } from '../lib/analytics/metaPixel';
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
@@ -53,7 +54,10 @@ const Hero = () => {
             className="mt-8 flex flex-col sm:flex-row gap-4"
           >
             <motion.button
-              onClick={() => scrollToSection('#servicios')}
+              onClick={() => {
+                trackViewContent('Sección Servicios');
+                scrollToSection('#servicios');
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
@@ -65,6 +69,7 @@ const Hero = () => {
               href="https://wa.me/51978073454?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n%20de%20servicios%20de%20el%C3%A9ctrica%20y%20electr%C3%B3nica."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackLead('WhatsApp Hero')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
@@ -74,6 +79,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="tel:+51978073454"
+              onClick={() => trackLead('Llamada Hero')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
