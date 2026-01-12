@@ -5,23 +5,6 @@ import { Phone, MapPin, MessageCircle } from 'lucide-react';
 import { trackLead } from '../lib/analytics/metaPixel';
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Teléfono",
-      info: "+51 978 073 454",
-      description: "Lun-Dom 8:00-20:00",
-      link: "tel:+51978073454",
-      trackSource: "Teléfono Contacto - Tarjeta",
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Ubicación",
-      info: "Chiclayo, Lambayeque, Perú",
-      description: "Servicio en zonas aledañas"
-    }
-  ];
-
   return (
     <section id="contacto" className="relative min-h-dvh flex items-center pt-28 pb-28 md:pt-28 md:pb-28 lg:pt-28 lg:pb-28 xl:pt-40 xl:pb-40 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -42,8 +25,8 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-          {/* Información de contacto */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+          {/* Mapa de ubicación */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -53,48 +36,24 @@ const Contact = () => {
           >
             <div>
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-                Información de contacto
+                Ubicación
               </h3>
               <p className="text-base lg:text-lg text-gray-600 mb-6">
-                Estamos listos para ayudarte con tus instalaciones eléctricas y de seguridad
+                Encuéntranos en Chiclayo y zonas aledañas
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {contactInfo.map((item) => {
-                const content = (
-                <motion.div
-                  key={item.title}
-                    whileHover={{ y: -5 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                    className={`p-4 bg-gray-50 rounded-2xl border border-gray-200 hover:border-[var(--primary-blue)]/50 hover:shadow-lg transition-all duration-200 text-center ${item.link ? 'cursor-pointer' : ''}`}
-                >
-                    <div className="inline-block p-3 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--primary-celeste)] rounded-xl mb-3 text-white">
-                    {item.icon}
-                  </div>
-                  <h4 className="text-base lg:text-lg font-bold mb-2 text-gray-900">{item.title}</h4>
-                  <p className="text-sm lg:text-base text-[color:var(--primary-blue)] font-medium mb-1">{item.info}</p>
-                  <p className="text-xs lg:text-sm text-gray-600">{item.description}</p>
-                </motion.div>
-                );
-
-                return item.link ? (
-                  <a
-                    key={item.title}
-                    href={item.link}
-                    className="block"
-                    onClick={() => {
-                      if (item.trackSource) {
-                        trackLead(item.trackSource);
-                      }
-                    }}
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  content
-                );
-              })}
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.3499833014869!2d-79.81211968160585!3d-6.842564511998345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc9ae47ad6b92c13%3A0x556108bb4904944a!2sEl%C3%A9ctrica%20Electr%C3%B3nica!5e0!3m2!1sen!2spe!4v1768246834439!5m2!1sen!2spe"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }}
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación de Eléctrica Electrónica"
+              />
             </div>
           </motion.div>
 
@@ -133,21 +92,33 @@ const Contact = () => {
 
               {/* Botón Llamar */}
               <motion.a
-                  href="tel:+51978073454"
+                href="tel:+51978073454"
                 onClick={() => trackLead('Llamada Contacto')}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="w-full flex items-center justify-center gap-4 p-6 bg-[color:var(--primary-yellow)] text-black rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:brightness-105 transition-all duration-200"
-                >
+              >
                 <Phone className="w-6 h-6" />
                 <span>Llamar ahora</span>
               </motion.a>
-              </div>
+            </div>
 
             <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-center">
               <p className="text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">Respuesta inmediata:</span> Atendemos todos los días de 8:00 AM a 8:00 PM
+                <span className="font-semibold text-gray-900">Respuesta inmediata:</span> Atendemos todos los días de 8:00 AM a 5:00 PM
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <MapPin className="w-5 h-5 text-[var(--primary-blue)]" />
+                <p className="text-sm lg:text-base font-semibold text-gray-900">
+                  Chiclayo, Lambayeque, Perú
+                </p>
+              </div>
+              <p className="text-sm text-gray-600 text-center">
+                Servicio disponible en zonas aledañas
               </p>
             </div>
           </motion.div>

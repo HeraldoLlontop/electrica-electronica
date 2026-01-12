@@ -15,7 +15,7 @@ const faqs = [
   },
   { 
     q: '¿Atienden emergencias y cuáles son los horarios?', 
-    a: 'Sí, atendemos reparaciones y emergencias urgentes. Horario regular: lunes a domingo de 8:00 AM a 8:00 PM. Para emergencias fuera de estos horarios, contáctanos por WhatsApp o teléfono y evaluamos la urgencia.' 
+    a: 'Sí, atendemos reparaciones y emergencias urgentes. Horario regular: lunes a domingo de 8:00 AM a 5:00 PM. Para emergencias fuera de estos horarios, contáctanos por WhatsApp o teléfono y evaluamos la urgencia.' 
   },
   { 
     q: '¿Ofrecen garantía?', 

@@ -76,7 +76,7 @@ const Footer = () => {
                 <span>Chiclayo, Perú</span>
               </li>
               <li className="text-gray-500 text-xs pt-2">
-                Lun-Dom 8:00 AM - 8:00 PM
+                Lun-Dom 8:00 AM - 5:00 PM
               </li>
               <li className="text-gray-500 text-xs">
                 Atención a domicilio y empresarial
